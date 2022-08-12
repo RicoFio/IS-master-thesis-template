@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% setup.tex
+% Main tex file for setup and content collocation
+% For the use of Univesity of Amsterdam
+% Information Science and Data Science students
+% Adapted by Riccardo Fiorista (riccardo.fiorista@proton.me)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Options:
+% Choose one of:
+%% `is` - Information Studies
+%% `ds` - Data Science 
+% Add (separated by `,`):
+%% `nolinenumbering` - If you want to remove line numbering on submission
+\documentclass[is]{mscthesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT METADATA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Thesis related entries
+\title{Fill In Your Title}
+\subtitle{Fill In Your Sub-Title}
+
+% Date on which your thesis is submitted
+\date{Fill In The Date In Format DD.MM.YYYY}
+
+% 4-5 keywords should do the trick. They should ideally be phrases of 2-4 words or single words.
+\keywords{keywords, belong, here, with, commas, like, this}
+
+% Author data
+\authorname{Your Name}
+\authorid{Your Student ID}
+\authoremail{your@student.mail}
+
+% Supervisors
+\firstsupervisorname{First Supervisor}
+\firstsupervisoraffiliation{First Supervisor}
+\firstsupervisoremail{first@supervisors.uva.nl}
+
+% % Uncomment and fill if you have an external supervisor
+% \externalsupervisorname{External Supervisor}
+% \externalsupervisoraffiliation{External Supervisor}
+% \externalsupervisoremail{external@supervisors.uva.nl}
+
+% Examiner
+\examinername{Examiner}
+\examineraffiliation{Examiner}
+\examineremail{examiner@uva.nl}
+
+% ACM-sepecific entries
+\affiliation{
+  \institution{\thesisinstitution}
+  \city{\thesiscity}
+  \country{\thesiscountry}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\pagestyle{plain}
+\setcounter{page}{0}
+
+\maketitlepage
+\fixemptypage
+
+\begin{abstract}
+% A summary of results should be included. Avoid citations. Maximum length is 200 words.
+Write your abstract here.
+\end{abstract}
+
+\maketitle
+
+% Sections; Try to stick to this setup
+\input{sections/3-thesis/1-introduction.tex}
+\input{sections/3-thesis/2-related-work.tex}
+\input{sections/3-thesis/3-methodology.tex}
+\input{sections/3-thesis/4-experiments.tex}
+\input{sections/3-thesis/5-results.tex}
+\input{sections/3-thesis/6-discussion.tex}
+\input{sections/3-thesis/7-future-work.tex}
+\input{sections/3-thesis/8-conclusion.tex}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{bibliographies/references}
+
+\newpage
+\input{sections/3-thesis/9-appendix.tex}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
