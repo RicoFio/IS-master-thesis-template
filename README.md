@@ -8,3 +8,4 @@ In this repository you will find four templates:
 - [IPYNB] A jupyter notebook for your `exploratory-data-analysis` (in the equally-named folder) including a `requirements.txt` and a sample image/rendering
 
 You will find a specific `README.md` file in the `latex-template` folder which illustrates how to import the template in [Overleaf](https://www.overleaf.com/) and how to work offline. For both you will want to make use of the `latex-template.zip` file in this root folder.
+
