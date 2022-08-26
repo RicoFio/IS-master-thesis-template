@@ -12,6 +12,10 @@
 %% `ds` - Data Science 
 % Add (separated by `,`):
 %% `nolinenumbering` - If you want to remove line numbering on submission
+%% `draftmargins` - If you would like to give your reviewer more space for comments
+%% `nofrontpicture` - If you do not wish to have a graphic on your front-page
+%% `nofirstcompanypicture` - If you do not wish to have a graphic on your front-page
+%% `nosecondcompanypicture` - If you do not wish to have a graphic on your front-page
 \documentclass[ds]{mscthesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,26 +38,19 @@
 \authoremail{your@student.mail}
 
 % Supervisors
-\firstsupervisorname{First Supervisor}
-\firstsupervisoraffiliation{First Supervisor}
-\firstsupervisoremail{first@supervisors.uva.nl}
+\uvasupervisorname{UvA Supervisor}
+\uvasupervisoraffiliation{UvA Supervisor}
+\uvasupervisoremail{supervisor@uva.nl}
 
 % % Uncomment and fill if you have an external supervisor
 % \externalsupervisorname{External Supervisor}
 % \externalsupervisoraffiliation{External Supervisor}
-% \externalsupervisoremail{external@supervisors.uva.nl}
+% \externalsupervisoremail{supervisor@company.nl}
 
-% Examiner
-\examinername{Examiner}
-\examineraffiliation{Examiner}
-\examineremail{examiner@uva.nl}
-
-% ACM-sepecific entries
-\affiliation{
-  \institution{\thesisinstitution}
-  \city{\thesiscity}
-  \country{\thesiscountry}
-}
+% % Uncomment and fill paths if you want to add custom images
+% \titlepicturepath{}
+% \firstcompanypicturepath{}
+% \secondcompanypicture{path}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONTENT
@@ -74,20 +71,20 @@ Write your abstract here.
 \maketitle
 
 % Sections; Try to stick to this setup
-\input{sections/3-thesis/1-introduction.tex}
-\input{sections/3-thesis/2-related-work.tex}
-\input{sections/3-thesis/3-methodology.tex}
-\input{sections/3-thesis/4-experiments.tex}
-\input{sections/3-thesis/5-results.tex}
-\input{sections/3-thesis/6-discussion.tex}
-\input{sections/3-thesis/7-future-work.tex}
-\input{sections/3-thesis/8-conclusion.tex}
+\input{sections/2-thesis/1-introduction.tex}
+\input{sections/2-thesis/2-related-work.tex}
+\input{sections/2-thesis/3-methodology.tex}
+\input{sections/2-thesis/4-experiments.tex}
+\input{sections/2-thesis/5-results.tex}
+\input{sections/2-thesis/6-discussion.tex}
+\input{sections/2-thesis/7-future-work.tex}
+\input{sections/2-thesis/8-conclusion.tex}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{bibliographies/references}
 
 \newpage
-\input{sections/3-thesis/9-appendix.tex}
+\input{sections/2-thesis/9-appendix.tex}
 
 \end{document}
 

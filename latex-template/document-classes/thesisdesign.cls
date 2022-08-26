@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{mscthesis}
+\ProvidesClass{thesisdesign}
               [2022/08/31 Modified from the ACM paper definition by Riccardo Fiorista]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,30 +173,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Thesis data
 % `title` and `keywords` are already defined
-\newcommand\thesistype{\@empty}
 \newcommand\thesiskeywords[1]{\keywords{#1}\gdef\@thesiskeywords{#1}}
 \newcommand\thesistitle[1]{\title{#1}\gdef\@thesistitle{#1}}
 \newcommand\thesissubtitle[1]{\subtitle{#1}\gdef\@thesissubtitle{#1}}
 \newcommand\thesisdate[1]{\date{#1}\gdef\@thesisdate{#1}}
 
 % Titlepage data
-\newcommand\frontpicturepath[1]{\gdef\@frontpicturepath{#1}}  % media/titlepage/sample_cover.jpeg
-\newcommand\firstcompanylogopath[1]{\gdef\@firstcompanylogopath{#1}}  % media/titlepage/sample_company_1.png
-\newcommand\secondcompanylogopath[1]{\gdef\@secondcompanylogopath{#1}}  % media/titlepage/sample_company_2.png
-%% Set default values
-\frontpicturepath{media/titlepage/sample_cover.jpeg}
-\firstcompanylogopath{media/titlepage/sample_company_1.png}
-\secondcompanylogopath{media/titlepage/sample_company_2.png}
 
 % Student data
-\newcommand\authorname[1]{\gdef\@authorname{#1}}
-\newcommand\authoremail[1]{\gdef\@authoremail{\href{mailto:#1}{#1}}}
+\newcommand\authorname[1]{\author{#1}\gdef\@authorname{#1}}
+\newcommand\authoremail[1]{\email{#1}\gdef\@authoremail{\href{mailto:#1}{#1}}}
 \newcommand\authorid[1]{\gdef\@authorid{#1}}
 
 % Supervisor data
-\newcommand\uvasupervisorname[1]{\gdef\@uvassupervisorname{#1}}
-\newcommand\uvasupervisoraffiliation[1]{\gdef\@uvassupervisoraffiliation{#1}}
-\newcommand\uvasupervisoremail[1]{\gdef\@uvassupervisoremail{\href{mailto:#1}{#1}}}
+\newcommand\uvasupervisorname[1]{\gdef\@firstsupervisorname{#1}}
+\newcommand\uvasupervisoraffiliation[1]{\gdef\@firstsupervisoraffiliation{#1}}
+\newcommand\uvasupervisoremail[1]{\gdef\@firstsupervisoremail{\href{mailto:#1}{#1}}}
 
 \newcommand\externalsupervisorname[1]{\gdef\@externalsupervisorname{#1}}
 \newcommand\externalsupervisoraffiliation[1]{\gdef\@externalsupervisoraffiliation{#1}}
@@ -220,23 +212,11 @@
 % DECLARE HELPER VARIABLES AND COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\informationstudies{is}
-\def\datascience{ds}
-
 \newif\iflinenumbering
 \linenumberingtrue
 
 \newif\ifdraftmargins
 \draftmarginsfalse
-
-\newif\iffrontpicture
-\frontpicturetrue
-
-\newif\iffirstcompanypicture
-\firstcompanypicturetrue
-
-\newif\ifsecondcompanypicture
-\secondcompanypicturetrue
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -244,19 +224,11 @@
 % DECLARE OPTIONS FOR IS AND DS STYLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DeclareOption{is}{\renewcommand\thesistype{is}}
-
-\DeclareOption{ds}{\renewcommand\thesistype{ds}}
-
 \DeclareOption{nolinenumbering}{\linenumberingfalse}
 
-\DeclareOption{draftmargins}{\draftmarginstrue}
-
-\DeclareOption{nofrontpicture}{\frontpicturefalse}
-
-\DeclareOption{nofirstcompanypicture}{\firstcompanypicturefalse}
-
-\DeclareOption{nosecondcompanypicture}{\secondcompanypicturefalse}
+\DeclareOption{draftmargins}{
+    \draftmarginstrue
+}
 
 % Catch all options that are not defined here and send them over to the base-class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}[sigconf]{acmart}}
@@ -268,114 +240,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DECLARE OPTIONS FOR IS AND DS STYLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand\maketitlepage{
-
-    % Disable linenumbering for the title page
-    \iflinenumbering
-        \nolinenumbers
-    \fi
-        
-    \begin{titlepage}%
-        \begin{center}
-         
-        \textsc{\Huge \@title \\[4px] \Large \@subtitle}
-        
-        \vfill
-        
-        \textsc{%
-            \large
-            submitted in partial fulfillment for the degree of master of science\\
-            %
-            \bigskip
-            %
-            \@authorname\\
-            %
-            \@authorid\\
-            %
-            \bigskip
-            \thesisdegree\\
-            %
-            \ifthenelse{\equal{\thesistype}{\datascience}}{data science}{information studies}\\
-            %
-            \thesisfaculty\\
-            %
-            \thesisinstitution\\
-            %
-            \bigskip
-            Submitted on \Large \@date
-        }
-        
-        \end{center}
-        
-        \vfill
-        
-        \iffrontpicture
-            \begin{center}
-            \includegraphics[width=0.6\linewidth]{\@frontpicturepath}
-            \end{center}
-        \fi
-        
-        \vfill
-
-        % logos
-        \begin{center}
-        \mbox{
-            \iffirstcompanypicture
-                \includegraphics[width=.1\paperwidth]{\@firstcompanylogopath}\hspace{2ex}
-            \fi
-            \includegraphics[width=.12\paperwidth]{media/titlepage/logo-uva.png}\hspace{2ex}
-            \ifsecondcompanypicture
-                \includegraphics[width=.1\paperwidth]{\@secondcompanylogopath}
-            \fi
-        }
-        \end{center}
-
-        \vfill
-
-        \ifx\@externalsupervisorname\undefined
-            \begin{center}
-            \begin{tabular}{|l||l|}
-            \hline
-            {}                      & \textbf{UvA Supervisor}      \\   
-            \hline
-            \textbf{Title, Name}    & \@uvassupervisorname         \\
-            \textbf{Affiliation}    & \@uvassupervisoraffiliation  \\ 
-            \textbf{Email}          & \@uvassupervisoremail        \\
-            \hline
-            \end{tabular}
-            \end{center}
-        \else
-            \begin{center}
-            \begin{tabular}{|l||ll|}
-            \hline
-            {}                      & \textbf{UvA Supervisor}  & \textbf{External Supervisor}         \\   
-            \hline
-            \textbf{Title, Name}    & \@uvassupervisorname         & \@externalsupervisorname         \\
-            \textbf{Affiliation}    & \@uvassupervisoraffiliation  & \@externalsupervisoraffiliation  \\ 
-            \textbf{Email}          & \@uvassupervisoremail        & \@externalsupervisoremail        \\
-            \hline
-            \end{tabular}
-            \end{center}
-        \fi
-        
-    \end{titlepage}
-
-    % Re-enable linenumbering
-    \iflinenumbering
-        \linenumbers
-    \fi
-
-    % Reset title, sub-title, author, and affiliations to not display them
-    % on the title page
-    \authorname{\@empty}
-    \authorid{\@empty}
-    \authoremail{\@empty}
-    
-    \title{\@empty}
-    \subtitle{\@empty}
-    \renewcommand{\affiliation}[1]{}
-}
 
 % Patch for lineno to work with the AmsMath environments from https://latex.org/forum/viewtopic.php?t=163
 \newcommand*\patchAmsMathEnvironmentForLineno[1]{%
@@ -408,7 +272,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \LoadClass[sigconf, screen=true, review=false, twocolumn]{acmart}
-
 % To allow multi-line inputs in fields such as subtitle
 % Taken from Solution 2 here:
 % https://9to5science.com/hyperref-warning-token-not-allowed-in-a-pdf-string
