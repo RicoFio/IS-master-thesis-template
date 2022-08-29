@@ -4,6 +4,12 @@
 % sources (ACM, ETH DISCO thesis) for the use of Univesity of Amsterdam
 % Information Science and Data Science students
 % Adapted by Riccardo Fiorista (riccardo.fiorista@proton.me)
+
+% As you're asking, yes this is all very similar to the mscthesis.cls however,
+% it treats line-numbering differently. There was an issue with the title page
+% and I couldn't resolve it in the first place.
+% Duplicating a bit of code seemed the most straight forward action to take.
+% I hope you can forgive me Robert C. Martins.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]

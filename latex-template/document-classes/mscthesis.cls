@@ -184,9 +184,9 @@
 \newcommand\firstcompanylogopath[1]{\gdef\@firstcompanylogopath{#1}}  % media/titlepage/sample_company_1.png
 \newcommand\secondcompanylogopath[1]{\gdef\@secondcompanylogopath{#1}}  % media/titlepage/sample_company_2.png
 %% Set default values
-\frontpicturepath{media/titlepage/sample_cover.jpeg}
-\firstcompanylogopath{media/titlepage/sample_company_1.png}
-\secondcompanylogopath{media/titlepage/sample_company_2.png}
+\frontpicturepath{media/titlepage/sample-cover.jpeg}
+\firstcompanylogopath{media/titlepage/ams-ds-logo.png}
+\secondcompanylogopath{media/titlepage/sample-company-1.png}
 
 % Student data
 \newcommand\authorname[1]{\gdef\@authorname{#1}}
@@ -315,21 +315,6 @@
             \includegraphics[width=0.6\linewidth]{\@frontpicturepath}
             \end{center}
         \fi
-        
-        \vfill
-
-        % logos
-        \begin{center}
-        \mbox{
-            \iffirstcompanypicture
-                \includegraphics[width=.1\paperwidth]{\@firstcompanylogopath}\hspace{2ex}
-            \fi
-            \includegraphics[width=.12\paperwidth]{media/titlepage/logo-uva.png}\hspace{2ex}
-            \ifsecondcompanypicture
-                \includegraphics[width=.1\paperwidth]{\@secondcompanylogopath}
-            \fi
-        }
-        \end{center}
 
         \vfill
 
@@ -358,6 +343,21 @@
             \end{tabular}
             \end{center}
         \fi
+
+        \vfill
+
+        % logos
+        \begin{center}
+        \mbox{
+            \iffirstcompanypicture
+                \includegraphics[width=.1\paperwidth]{\@firstcompanylogopath}\hspace{2ex}
+            \fi
+            \includegraphics[width=.1\paperwidth]{media/titlepage/logo-uva.png}\hspace{2ex}
+            \ifsecondcompanypicture
+                \includegraphics[width=.1\paperwidth]{\@secondcompanylogopath}
+            \fi
+        }
+        \end{center}
         
     \end{titlepage}
 
