@@ -296,7 +296,7 @@
             \bigskip
             \thesisdegree\\
             %
-            \ifthenelse{\equal{\thesistype}{\datascience}}{data science}{information studies}\\
+            \ifthenelse{\equal{\thesistype}{\datascience}}{data science}{information systems}\\
             %
             \thesisfaculty\\
             %
